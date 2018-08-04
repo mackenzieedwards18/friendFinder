@@ -1,12 +1,16 @@
-var path = require("path");
+//Dependencies
+var path = require('path');
+
+//ROUTING
 
 module.exports = function(app){
-// HTML : Basic route that sends the user first to the AJAX Page
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "/../public/home.html"));
-});
+  //default GET route that leads to home.html - displays home page
+  app.get('/survey', function (req, res) {
+    res.sendFile(path.join(__dirname + '/../public/survey.html'));
+  });
 
-app.get("/survey", function(req, res) {
-  res.sendFile(path.join(__dirname, "/../public/survey.html"));
-});
+  //a USE route to home page
+  app.get("/",function (req, res) {
+    res.sendFile(path.join(__dirname + '/../public/home.html'));
+  });
 };
